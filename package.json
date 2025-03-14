@@ -1,0 +1,27 @@
+{
+  "name": "prototico-exe",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafagt2004/prototico-exe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafagt2004/prototico-exe/issues"
+  },
+  "homepage": "https://github.com/rafagt2004/prototico-exe#readme",
+  "description": "",
+  "devDependencies": {
+    "electron": "^34.2.0",
+    "electron-reload": "^2.0.0-alpha.1"
+  },
+  "dependencies": {
+    "@electron/remote": "^2.1.2"
+  }
+}

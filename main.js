@@ -11,7 +11,7 @@ function createWindow() {
         height: 600,
         webPreferences: {
             nodeIntegration: true,
-            contextIsolation: false // Adicione esta linha para permitir o uso do remote
+            contextIsolation: false // Permite o uso do remote
         },
         icon: path.join(__dirname, 'logo.ico'),
         frame: false, // Janela sem moldura

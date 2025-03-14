@@ -16,41 +16,75 @@ body {
     flex-direction: column;
 }
 
+#header-global{
+    background-color: #f3f3f3;
+    height: 40px;
+    width: 100%;
+}
+
 .title-bar {
+    padding-left: 10px;
+    height: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #333;
-    color: white;
-    padding: 10px;
+    color: rgb(0, 0, 0);
     -webkit-app-region: drag; /* Permite arrastar a janela */
+
 }
 
 .title-bar-icon {
-    width: 20px;
-    height: 20px;
+    height: 25px;
 }
 
 .title-bar-text {
     flex-grow: 1;
-    text-align: center;
-    -webkit-app-region: no-drag; /* Impede arrastar a partir do texto */
+    text-align: start;
+    -webkit-app-region: drag; /* Impede arrastar a partir do texto */
 }
 
 .title-bar-buttons {
     display: flex;
-    gap: 5px;
+    height: 50px;
+}
+
+.title-bar-buttons img {
+    margin-top: 8px;
+    height: 14px;
 }
 
 .title-bar-buttons button {
     background: none;
+    display: flex;
+    align-items: start;
     border: none;
-    color: white;
-    padding: 5px 10px;
+    padding: 5px 16px;
     cursor: pointer;
     -webkit-app-region: no-drag; /* Impede arrastar a partir dos botões */
+    height: 37px;
 }
 
 .title-bar-buttons button:hover {
-    background-color: #555;
+    background-color: #02020225;
+}
+
+
+
+/*=-=-=-=-=-=-=Menu lateral=-=-=-=-=-=*/
+
+.menu-lateral {
+    background-color: #f3f3f3;
+    width: 200px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #e0e0e0;
+}
+
+.menu-hamburguer div{
+    height: 1px;
+    margin-top: 3px;
+    width: 15px;
+    background-color: #000;
 }

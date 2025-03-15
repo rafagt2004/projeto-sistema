@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+$(document).ready(function () {
     if (!window.electronRemote) {
         console.error("electronRemote não está definido.");
         return;
@@ -7,14 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("electronRemote carregado com sucesso.");
 
     // Seleciona os botões pelo ID
-    const minimizeBtn = document.querySelector('#minimizeButton');
-    const maximizeBtn = document.querySelector('#maximizeButton');
-    const closeBtn = document.querySelector('#closeButton');
+    const minimizeBtn = $('#minimizeButton');
+    const maximizeBtn = $('#maximizeButton');
+    const closeBtn = $('#closeButton');
 
     // Adiciona eventos aos botões, se existirem na página
-    if (minimizeBtn) minimizeBtn.addEventListener('click', () => window.electronRemote.minimizeWindow());
-    if (maximizeBtn) maximizeBtn.addEventListener('click', () => window.electronRemote.maximizeWindow());
-    if (closeBtn) closeBtn.addEventListener('click', () => window.electronRemote.closeWindow());
+    if (minimizeBtn.length) minimizeBtn.on('click', () => window.electronRemote.minimizeWindow());
+    if (maximizeBtn.length) maximizeBtn.on('click', () => window.electronRemote.maximizeWindow());
+    if (closeBtn.length) closeBtn.on('click', () => window.electronRemote.closeWindow());
 
     // Carregar conteúdo dinâmico na div com ID "content"
     loadContent('pages/home');
@@ -22,16 +22,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Função para carregar páginas dentro da div #content
 function loadContent(page) {
-    fetch(`${page}.html`)
-        .then(response => response.ok ? response.text() : Promise.reject(response.statusText))
-        .then(data => document.getElementById('content').innerHTML = data)
-        .catch(error => console.error('Erro ao carregar página:', error));
+    $.get(`${page}.html`)
+        .done(data => $('#content').html(data))
+        .fail(error => console.error('Erro ao carregar página:', error.statusText));
 }
 
 // Função para carregar janelas dentro da div #janela
 function loadJanela(page) {
-    fetch(page)
-        .then(response => response.ok ? response.text() : Promise.reject(response.statusText))
-        .then(data => document.getElementById('janela').innerHTML = data)
-        .catch(error => console.error('Erro ao carregar janela:', error));
+    $.get(page)
+        .done(data => $('#janela').html(data))
+        .fail(error => console.error('Erro ao carregar janela:', error.statusText));
 }
+
+$(document).ready(function () {
+    console.log($("button"));
+});

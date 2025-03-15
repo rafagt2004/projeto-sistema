@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema</title>
     <link rel="stylesheet" href="main.css">
 </head>
+
 <body>
     <header id="header-global">
-    <div class="title-bar">
-        <img src="https://aacelpe.com.br/wp-content/uploads/2022/07/logo-whatsapp-png-transparente10.png" alt="Logo" class="title-bar-icon">
-        <span class="title-bar-text">Sistema</span>
-            <div class="title-bar-buttons">
-                <button id="minimizeButton">
-                    <img src="./icons/min.svg" alt="">
-                </button>
-                <button id="maximizeButton">
-                    <img src="./icons/max.svg" alt="">
-                </button>
-                <button id="closeButton">
-                    <img src="./icons/close.svg" alt="">
-                </button>
-            </div>
+        <div class="title-bar-buttons">
+            <button id="minimizeButton">
+                <img src="./icons/min.svg" alt="">
+            </button>
+            <button id="maximizeButton">
+                <img src="./icons/max.svg" alt="">
+            </button>
+            <button id="closeButton">
+                <img src="./icons/close.svg" alt="">
+            </button>
         </div>
     </header>
     <div class="menu-lateral">
-        <nav>
+        <div class="title-bar">
+            <img src="https://aacelpe.com.br/wp-content/uploads/2022/07/logo-whatsapp-png-transparente10.png" alt="Logo" class="title-bar-icon">
+            <span class="title-bar-text">Sistema</span>
+        </div>
+        <div>
             <div class="menu-hamburguer">
                 <div class="hamburguer"></div>
                 <div class="hamburguer"></div>
@@ -33,19 +35,19 @@
             </div>
             <ul>
                 <li><a id="home" href="#" onclick="loadContent('pages/home')">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1177/1177577.png" alt=".">
-                    Cadastros
-                </a></li>
+                        <img src="https://cdn-icons-png.flaticon.com/512/1177/1177577.png" alt=".">
+                        Cadastros
+                    </a></li>
                 <li><a href="#" onclick="loadContent('pages/financeiro')">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1177/1177577.png" alt=".">
-                    Financeiro
-                </a></li>
+                        <img src="https://cdn-icons-png.flaticon.com/512/1177/1177577.png" alt=".">
+                        Financeiro
+                    </a></li>
                 <li><a href="#" onclick="loadContent('pages/estoque')">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1177/1177577.png" alt=".">
-                    Estoque
-                </a></li>
+                        <img src="https://cdn-icons-png.flaticon.com/512/1177/1177577.png" alt=".">
+                        Estoque
+                    </a></li>
             </ul>
-        </nav>
+        </div>
     </div>
 
     <main id="content">
@@ -57,4 +59,5 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="renderer.js"></script>
 </body>
+
 </html>

@@ -19,28 +19,9 @@ body {
 #header-global{
     background-color: #f3f3f3;
     height: 40px;
-    width: 100%;
-}
-
-.title-bar {
-    padding-left: 10px;
-    height: 100%;
-    width: 100%;
+    width: 100vw;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: rgb(0, 0, 0);
-    -webkit-app-region: drag; /* Permite arrastar a janela */
-
-}
-
-.title-bar-icon {
-    height: 25px;
-}
-
-.title-bar-text {
-    flex-grow: 1;
-    text-align: start;
+    justify-content: end;
     -webkit-app-region: drag; /* Impede arrastar a partir do texto */
 }
 
@@ -73,13 +54,42 @@ body {
 
 /*=-=-=-=-=-=-=Menu lateral=-=-=-=-=-=*/
 
+.title-bar {
+    padding-left: 10px;
+    height: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: rgb(0, 0, 0);
+    -webkit-app-region: drag; /* Permite arrastar a janela */
+}
+
+
+.title-bar-icon {
+    height: 25px;
+}
+
+.title-bar-text {
+    flex-grow: 1;
+    text-align: start;
+    -webkit-app-region: drag; /* Impede arrastar a partir do texto */
+}
+
 .menu-lateral {
-    background-color: #f3f3f3;
-    width: 200px;
-    height: 100%;
+    position: absolute;
+    border-radius: 0px 10px 10px 0px;
+    background-color: #fff;
+    overflow: hidden;
+    width: 230px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     border-right: 1px solid #e0e0e0;
+}
+
+.menu-lateral ul img{
+    height: 30px;
 }
 
 .menu-hamburguer div{

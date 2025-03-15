@@ -1,39 +1,41 @@
-require('electron-reload')(__dirname);
-
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
-const remoteMain = require('@electron/remote/main');
-remoteMain.initialize();
+
+let mainWindow;
 
 function createWindow() {
-    const win = new BrowserWindow({
+    mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
         webPreferences: {
-            nodeIntegration: true,
-            contextIsolation: false // Permite o uso do remote
+            preload: path.join(__dirname, 'preload.js'),
+            contextIsolation: true,
+            nodeIntegration: false
         },
-        icon: path.join(__dirname, 'logo.ico'),
-        frame: false, // Janela sem moldura
-        titleBarStyle: 'hidden' // Oculta a barra de título padrão
+        frame: false, // Remove a barra padrão do Windows
+        titleBarStyle: 'hidden',
+        icon: path.join(__dirname, 'logo.ico')
     });
 
-    remoteMain.enable(win.webContents);
-
-    win.loadFile('index.html');
-    win.setMenu(null); // Remover a barra de menu
+    mainWindow.loadFile('index.html');
 }
 
 app.whenReady().then(createWindow);
 
-app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') {
-        app.quit();
+ipcMain.on('window-minimize', () => {
+    if (mainWindow) mainWindow.minimize();
+});
+
+ipcMain.on('window-maximize', () => {
+    if (mainWindow) {
+        if (mainWindow.isMaximized()) {
+            mainWindow.unmaximize();
+        } else {
+            mainWindow.maximize();
+        }
     }
 });
 
-app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
-        createWindow();
-    }
+ipcMain.on('window-close', () => {
+    if (mainWindow) mainWindow.close();
 });

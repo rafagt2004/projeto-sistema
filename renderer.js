@@ -1,46 +1,37 @@
-const remote = require('@electron/remote');
-
-function minimizeWindow() {
-    remote.getCurrentWindow().minimize();
-}
-
-function maximizeWindow() {
-    const window = remote.getCurrentWindow();
-    if (window.isMaximized()) {
-        window.unmaximize();
-    } else {
-        window.maximize();
+document.addEventListener('DOMContentLoaded', () => {
+    if (!window.electronRemote) {
+        console.error("electronRemote não está definido.");
+        return;
     }
-}
 
-function closeWindow() {
-    remote.getCurrentWindow().close();
-}
+    console.log("electronRemote carregado com sucesso.");
 
-// Função existente para carregar conteúdo
-function loadContent(page) {
-    fetch(page + '.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('content').innerHTML = data;
-        });
-}
+    // Seleciona os botões pelo ID
+    const minimizeBtn = document.querySelector('#minimizeButton');
+    const maximizeBtn = document.querySelector('#maximizeButton');
+    const closeBtn = document.querySelector('#closeButton');
 
-function loadJanela(page) {
-    fetch(page)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Erro ao carregar a página: ' + response.statusText);
-        }
-        return response.text();
-    })
-    .then(data => {
-        document.getElementById('janela').innerHTML = data;
-    })
-    .catch(error => console.error('Erro ao carregar a página:', error));
-}
+    // Adiciona eventos aos botões, se existirem na página
+    if (minimizeBtn) minimizeBtn.addEventListener('click', () => window.electronRemote.minimizeWindow());
+    if (maximizeBtn) maximizeBtn.addEventListener('click', () => window.electronRemote.maximizeWindow());
+    if (closeBtn) closeBtn.addEventListener('click', () => window.electronRemote.closeWindow());
 
-// Carregar a página "Home" automaticamente ao iniciar
-document.addEventListener('DOMContentLoaded', (event) => {
+    // Carregar conteúdo dinâmico na div com ID "content"
     loadContent('pages/home');
 });
+
+// Função para carregar páginas dentro da div #content
+function loadContent(page) {
+    fetch(`${page}.html`)
+        .then(response => response.ok ? response.text() : Promise.reject(response.statusText))
+        .then(data => document.getElementById('content').innerHTML = data)
+        .catch(error => console.error('Erro ao carregar página:', error));
+}
+
+// Função para carregar janelas dentro da div #janela
+function loadJanela(page) {
+    fetch(page)
+        .then(response => response.ok ? response.text() : Promise.reject(response.statusText))
+        .then(data => document.getElementById('janela').innerHTML = data)
+        .catch(error => console.error('Erro ao carregar janela:', error));
+}

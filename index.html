@@ -12,13 +12,13 @@
         <img src="https://aacelpe.com.br/wp-content/uploads/2022/07/logo-whatsapp-png-transparente10.png" alt="Logo" class="title-bar-icon">
         <span class="title-bar-text">Sistema</span>
             <div class="title-bar-buttons">
-                <button onclick="minimizeWindow()">
+                <button id="minimizeButton">
                     <img src="./icons/min.svg" alt="">
                 </button>
-                <button onclick="maximizeWindow()">
+                <button id="maximizeButton">
                     <img src="./icons/max.svg" alt="">
                 </button>
-                <button onclick="closeWindow()">
+                <button id="closeButton">
                     <img src="./icons/close.svg" alt="">
                 </button>
             </div>
@@ -33,15 +33,15 @@
             </div>
             <ul>
                 <li><a id="home" href="#" onclick="loadContent('pages/home')">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1177/1177577" alt=".">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1177/1177577.png" alt=".">
                     Cadastros
                 </a></li>
                 <li><a href="#" onclick="loadContent('pages/financeiro')">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1177/1177577" alt=".">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1177/1177577.png" alt=".">
                     Financeiro
                 </a></li>
                 <li><a href="#" onclick="loadContent('pages/estoque')">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1177/1177577" alt=".">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1177/1177577.png" alt=".">
                     Estoque
                 </a></li>
             </ul>
@@ -54,6 +54,7 @@
     <main id="janela">
 
     </main>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="renderer.js"></script>
 </body>
 </html>

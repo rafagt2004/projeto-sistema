@@ -42,7 +42,7 @@ body {
     display: none;
     position: absolute;
     background-color: #fff;
-    width: 300px;
+    width: 215px;
     height: 100vh;
     z-index: 1;
     border-radius: 0px 10px 10px 0px;
@@ -64,11 +64,29 @@ body {
     gap: 10px;
 }
 
+#app-menu-lateral ul li{
+    height: 40px;
+    width: 40px;
+}
+
+
+
 #app-menu-lateral ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     position: relative; /* Define o contexto para o posicionamento absoluto do span */
     align-items: center;
+    border-radius: 10px;
+}
+
+#app-menu-lateral ul li a:hover,
+#menu-hamburguer:hover {
+    background-color: #0000001b;
 }
 
 #app-menu-lateral ul li a span {
@@ -78,17 +96,52 @@ body {
     margin-left: 8px; /* Espaçamento extra, se necessário */
     color: #000;
     font-size: 18px;
+    text-decoration: none;
 }
 
-.menu-hamburguer div{
-    height: 5px;
-    margin-top: 4px;
-    width: 45px;
-    background-color: #000;
+
+
+#menu-hamburguer{
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
 }
+
+.menu-hamburguer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+}
+
+.menu-hamburguer div {
+    height: 1px;
+    width: 15px;
+    background-color: #000;
+    transition: width 0.2s ease-in-out;
+}
+
+.menu-hamburguer.active div {
+    width: 9px;
+}
+
+/* Adicionar a animação de volta ao estado inicial */
+.menu-hamburguer:focus-within div {
+    animation: resize-animation 0.3s forwards;
+}
+
+@keyframes resize-animation {
+    50% {
+        width: 9px;
+    }
+    100% {
+        width: 13px;
+    }
+}
+
 
 #app-menu-lateral img{
-    height: 45px;
+    height: 35px;
 }
 
 #app-content{
@@ -167,20 +220,3 @@ body {
     text-align: start;
     -webkit-app-region: drag; 
 }
-
-.menu-lateral {
-    position: absolute;
-    border-radius: 0px 10px 10px 0px;
-    background-color: #fff;
-    overflow: hidden;
-    width: 230px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    border-right: 1px solid #e0e0e0;
-}
-
-.menu-lateral ul img{
-    height: 30px;
-}
-

@@ -25,6 +25,15 @@ $(document).ready(function () {
         
     });
 
+    $(".menu-hamburguer").on("click", function () {
+        $(this).toggleClass("active");
+
+        // Voltar ao estado inicial após um tempo
+        setTimeout(() => {
+            $(this).removeClass("active");
+        }, 300); // Tempo em milissegundos
+    });
+
 });
 
 // Função para carregar páginas dentro da div #content

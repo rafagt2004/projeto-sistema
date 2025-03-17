@@ -18,6 +18,13 @@ $(document).ready(function () {
 
     // Carregar conteúdo dinâmico na div com ID "content"
     loadContent('pages/home');
+
+    $('.menu-hamburguer').click(function () {
+        $('#menu').animate({width: 'toggle'}, 350);
+        $('.titles-list').animate({width: 'toggle'}, 350);
+        
+    });
+
 });
 
 // Função para carregar páginas dentro da div #content
@@ -33,7 +40,3 @@ function loadJanela(page) {
         .done(data => $('#janela').html(data))
         .fail(error => console.error('Erro ao carregar janela:', error.statusText));
 }
-
-$(document).ready(function () {
-    console.log($("button"));
-});

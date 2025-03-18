@@ -19,19 +19,16 @@ $(document).ready(function () {
     // Carregar conteúdo dinâmico na div com ID "content"
     loadContent('pages/home');
 
-    $('.menu-hamburguer').click(function () {
+    $('#menu-hamburguer').click(function () {
         $('#menu').animate({width: 'toggle'}, 350);
         $('.titles-list').animate({width: 'toggle'}, 350);
-        
-    });
-
-    $(".menu-hamburguer").on("click", function () {
         $(this).toggleClass("active");
 
         // Voltar ao estado inicial após um tempo
         setTimeout(() => {
             $(this).removeClass("active");
         }, 300); // Tempo em milissegundos
+        
     });
 
 });

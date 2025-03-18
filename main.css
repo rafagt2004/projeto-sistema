@@ -12,10 +12,7 @@ html, body {
 
 body {
     flex: 1;
-
 }
-
-
 
 #app {
     width: 100%;
@@ -25,20 +22,20 @@ body {
     display: block;
 }
 
-#app-body{
+#app-body {
     height: 100vh;
     width: 100vw;
     display: flex;
 }
 
-#app-header{
+#app-header {
     height: 40px;
     -webkit-app-region: drag;
     display: flex;
     justify-content: space-between;
 }
 
-#menu{
+#menu {
     display: none;
     position: absolute;
     background-color: #fff;
@@ -48,40 +45,39 @@ body {
     border-radius: 0px 10px 10px 0px;
 }
 
-#app-menu-lateral{
+#app-menu-lateral {
     height: 100%;
     width: 60px;
     z-index: 11;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: start;
 }
 
-#app-menu-lateral ul{
+#app-menu-lateral ul {
     display: flex;
     flex-direction: column;
+    list-style: none;
     gap: 10px;
 }
 
-#app-menu-lateral ul li{
+#app-menu-lateral ul li {
+    margin-left: 10px;
     height: 40px;
-    width: 40px;
+    display: flex;
+    align-items: center;
 }
-
-
 
 #app-menu-lateral ul li a {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     height: 100%;
     width: 100%;
-    display: flex;
     flex-direction: row;
-    position: relative; /* Define o contexto para o posicionamento absoluto do span */
-    align-items: center;
     border-radius: 10px;
+    padding-left: 4px;
+    text-decoration: none;
+    color: inherit;
 }
 
 #app-menu-lateral ul li a:hover,
@@ -91,23 +87,23 @@ body {
 
 #app-menu-lateral ul li a span {
     display: none;
-    position: absolute;
-    left: 100%; /* Coloca o span exatamente à direita da imagem */
-    margin-left: 8px; /* Espaçamento extra, se necessário */
+    margin-left: 16px;
     color: #000;
     font-size: 18px;
-    text-decoration: none;
 }
 
+#app-menu-lateral ul li a:hover span{
+    padding-right: 80px;
+}
 
-
-#menu-hamburguer{
+#menu-hamburguer {
     display: flex;
     justify-content: center;
     border-radius: 10px;
+    width: 40px;
 }
 
-.menu-hamburguer{
+.menu-hamburguer {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -125,7 +121,6 @@ body {
     width: 9px;
 }
 
-/* Adicionar a animação de volta ao estado inicial */
 .menu-hamburguer:focus-within div {
     animation: resize-animation 0.3s forwards;
 }
@@ -139,12 +134,12 @@ body {
     }
 }
 
-
-#app-menu-lateral img{
-    height: 35px;
+#app-menu-lateral img {
+    height: 30px;
+    margin-left: 1.5px;
 }
 
-#app-content{
+#app-content {
     display: flex;
     height: 100%;
     width: 100%;
@@ -152,20 +147,17 @@ body {
     overflow: hidden;
 }
 
-#janela{
+#janela {
     background-color: #ff0000;
     height: 100%;
     width: 100%;
 }
 
-#content{
+#content {
     background-color: aqua;
     height: 100%;
     width: 350px;
 }
-
-
-
 
 .title-bar-buttons {
     display: flex;
@@ -185,7 +177,7 @@ body {
     border: none;
     padding: 5px 16px;
     cursor: pointer;
-    -webkit-app-region: no-drag; 
+    -webkit-app-region: no-drag;
     height: 37px;
 }
 
@@ -197,8 +189,6 @@ body {
     background-color: #ff000091;
 }
 
-
-
 .title-bar {
     padding-left: 10px;
     height: 40px;
@@ -206,10 +196,9 @@ body {
     align-items: center;
     justify-content: space-between;
     color: rgb(0, 0, 0);
-    -webkit-app-region: drag; 
+    -webkit-app-region: drag;
     z-index: 10;
 }
-
 
 .title-bar-icon {
     height: 25px;
@@ -218,5 +207,5 @@ body {
 .title-bar-text {
     flex-grow: 1;
     text-align: start;
-    -webkit-app-region: drag; 
+    -webkit-app-region: drag;
 }

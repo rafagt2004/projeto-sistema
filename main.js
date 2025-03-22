@@ -30,12 +30,14 @@ ipcMain.on('window-minimize', () => {
     if (mainWindow) mainWindow.minimize();
 });
 
-ipcMain.on('window-maximize', () => {
+ipcMain.on('window-maximize', (event) => {
     if (mainWindow) {
         if (mainWindow.isMaximized()) {
             mainWindow.unmaximize();
+            event.sender.send('window-is-normal'); // Notifica que a janela voltou ao estado normal
         } else {
             mainWindow.maximize();
+            event.sender.send('window-is-maximized'); // Notifica que a janela está maximizada
         }
     }
 });

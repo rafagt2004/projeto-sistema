@@ -31,6 +31,7 @@ $(document).ready(function () {
 
     // Carregar conteúdo dinâmico na div #content
     loadContent('pages/home');
+    //loadJanela('./pages/janelas/clientes.html');
 
     // Quando clica no menu-hamburguer
     $('.menu-hamburguer').click(function (event) {
@@ -47,8 +48,8 @@ $(document).ready(function () {
 
     // Fecha o menu se clicar em qualquer outra área
     $(document).click(function () {
-        $('#menu').animate({ width: 'hide' }, 350);
-        $('.titles-list').animate({ width: 'hide' }, 350);
+        $('#menu').animate({ width: 'hide' }, 200);
+        $('.titles-list').animate({ width: 'hide' }, 0);
         $('.menu-hamburguer').removeClass("active");
     });
 });

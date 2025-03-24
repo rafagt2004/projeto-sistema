@@ -11,6 +11,8 @@ function createWindow() {
     mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
+        minWidth: 1025, // Define largura mínima
+        minHeight: 800, // Define altura mínima
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
             contextIsolation: true,

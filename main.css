@@ -1,3 +1,4 @@
+/* Reset e configurações globais */
 * {
     margin: 0;
     padding: 0;
@@ -14,6 +15,7 @@ body {
     flex: 1;
 }
 
+/* Estrutura principal do app */
 #app {
     width: 100%;
     height: 100%;
@@ -28,6 +30,7 @@ body {
     display: flex;
 }
 
+/* Cabeçalho do app */
 #app-header {
     height: 40px;
     -webkit-app-region: drag;
@@ -35,6 +38,7 @@ body {
     justify-content: space-between;
 }
 
+/* Menu lateral */
 #menu {
     display: none;
     position: absolute;
@@ -48,7 +52,7 @@ body {
 #app-menu-lateral {
     height: 100%;
     width: 60px;
-    z-index: 11;
+    z-index: 1;
     display: flex;
     justify-content: start;
 }
@@ -93,10 +97,16 @@ body {
     font-size: 18px;
 }
 
-#app-menu-lateral ul li a:hover span{
+#app-menu-lateral ul li a:hover span {
     padding-right: 80px;
 }
 
+#app-menu-lateral img {
+    height: 30px;
+    margin-left: 1.5px;
+}
+
+/* Botão do menu hamburguer */
 #menu-hamburguer {
     display: flex;
     justify-content: center;
@@ -138,11 +148,7 @@ body {
     }
 }
 
-#app-menu-lateral img {
-    height: 30px;
-    margin-left: 1.5px;
-}
-
+/* Conteúdo principal */
 #app-content {
     display: flex;
     height: 100%;
@@ -160,9 +166,15 @@ body {
 #content {
     background-color: aqua;
     height: 100%;
-    width: 350px;
+    min-width: 280px;
+    max-width: 280px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #ccc transparent;
 }
 
+
+/* Botões da barra de título */
 .title-bar-buttons {
     display: flex;
     justify-content: end;
@@ -193,6 +205,7 @@ body {
     background-color: #ff000091;
 }
 
+/* Barra de título */
 .title-bar {
     padding-left: 10px;
     height: 40px;
@@ -201,7 +214,7 @@ body {
     justify-content: space-between;
     color: rgb(0, 0, 0);
     -webkit-app-region: drag;
-    z-index: 10;
+    z-index: 1;
 }
 
 .title-bar-icon {
@@ -212,4 +225,50 @@ body {
     flex-grow: 1;
     text-align: start;
     -webkit-app-region: drag;
+}
+
+
+/*Lita das funções (janelas)*/
+
+.header-list{
+    display: flex;
+    height: 60px;
+    width: 100%;
+    padding: 0 10px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(138, 17, 108);
+}
+
+.conteudo-list{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 2px;
+    background-color: rgb(255, 123, 0);
+}
+
+.conteudo-list li{
+    height: 50px;
+    background-color: blue;
+}
+
+.conteudo-list li a{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    margin-left:5px ;
+}
+
+.conteudo-list li a:hover{
+    background-color: #0000001b;
+}
+
+.conteudo-list li img{
+    height: 30px;
+    margin-right: 10px;
 }

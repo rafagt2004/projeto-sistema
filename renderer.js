@@ -44,9 +44,11 @@ $(document).ready(function () {
         event.stopPropagation();
     });
 
-    $(document).on('click', function () {
-        $('#menu').removeClass('active');
-        $('.titles-list').removeClass('active');
+    $(document).on('click', function (event) {
+        if (!$(event.target).closest('#menu').length) {
+            $('#menu').removeClass('active');
+            $('.titles-list').removeClass('active');
+        }
     });
 
     // Captura de cliques para abrir janelas

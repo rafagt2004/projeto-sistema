@@ -218,6 +218,7 @@ body {
 .title-bar-buttons img {
     margin-top: 8px;
     height: 14px;
+    background: none;
 }
 
 .title-bar-buttons button {
@@ -295,6 +296,7 @@ body {
 .conteudo-list li{
     height: 50px;
     list-style: none;
+    border-radius: 10px;
 }
 
 .conteudo-list li a{
@@ -308,12 +310,12 @@ body {
     font-size: 15px;
 }
 
-.conteudo-list li a:hover{
+.conteudo-list li:hover{
     background-color: #f3f3f3;
 }
 
 .menu-item-list.active{
-    background-color: #f3f3f3;
+    background-color: rgb(232 232 232);
 }
 
 
@@ -324,7 +326,7 @@ body {
 .conteudo-list div{
     margin-right: 10px;
     place-content: center;
-    background-color: #f3f3f3;
+    background-color: rgb(232 232 232);
     padding: 8px;
     border-radius: 50%;
     display: flex;

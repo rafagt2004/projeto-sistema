@@ -96,6 +96,7 @@ body {
     padding-left: 4px;
     text-decoration: none;
     color: inherit;
+    position: relative;
 }
 
 #app-menu-lateral ul li a:hover,
@@ -103,9 +104,21 @@ body {
     background-color: #0000001b;
     cursor: pointer;
 }
+.menu-item div{
+    display: none;
+    position: absolute;
+    left: 0;
+    height: 22px;
+    width: 4px;
+    border-radius: 10px;
+    background-color: green;
+}
 
 .menu-item.active {
     background-color: #0000001b;
+}
+.menu-item.active div{
+    display: block;
 }
 
 #app-menu-lateral ul li a span {
@@ -132,7 +145,7 @@ body {
 }
 
 /* Botão do menu hamburguer */
-#menu-hamburguer {
+#menu-hamburguer-button {
     display: flex;
     justify-content: center;
     border-radius: 10px;
@@ -160,18 +173,6 @@ body {
     width: 9px;
 }
 
-.menu-hamburguer:focus-within div {
-    animation: resize-animation 0.2s forwards;
-}
-
-@keyframes resize-animation {
-    50% {
-        width: 9px;
-    }
-    100% {
-        width: 15px;
-    }
-}
 
 /* Conteúdo principal */
 #app-content {
@@ -316,11 +317,14 @@ body {
 
 
 .conteudo-list li img{
-    height: 35px;
+    height: 30px;
+}
+
+.conteudo-list div{
     margin-right: 10px;
     place-content: center;
     background-color: #f3f3f3;
-    padding: 5px;
+    padding: 8px;
     border-radius: 50%;
     display: flex;
     place-content: center;

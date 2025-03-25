@@ -14,48 +14,33 @@
     </header>
     <ul class="conteudo-list">
         <li>
-            <a href="#" class="menu-item-list" onclick="loadJanela('pages/janelas/clientes.html')">
-                <img src="./icons/add-cliente.svg" alt=".">
+            <a href="#" class="menu-item-list" data-janela="pages/janelas/clientes.html">
+                <div>
+                    <img src="./icons/add-cliente.svg" alt="Adicionar cliente">
+                </div>
                 <span class="names-list">Cadastro de Clientes</span>
             </a>
         </li>
         <li>
-            <a href="#" class="menu-item-list" onclick="loadJanela('pages/janelas/clientes')">
-                <img src="./icons/client-add.svg" alt=".">
-                <span class="names-list">Cadastro de Clientes</span>
+            <a href="#" class="menu-item-list" data-janela="pages/janelas/produtos.html">
+                <div>
+                    <img src="./icons/product.svg" alt="Cadastro de produtos">
+                </div>
+                <span class="names-list">Cadastro de Produtos</span>
             </a>
-        </li>
-        <li>
-            <a href="#" class="menu-item-list" onclick="loadJanela('pages/janelas/clientes')">
-                <img src="./icons/client-add.svg" alt=".">
-                <span class="names-list">Cadastro de Clientes</span>
-            </a>
-        </li>
-        <li>
-            <a href="#" class="menu-item-list" onclick="loadJanela('pages/janelas/clientes')">
-                <img src="./icons/client-add.svg" alt=".">
-                <span class="names-list">Cadastro de Clientes</span>
-            </a>
-        </li>
-        <li>
-            <a href="#" class="menu-item-list" onclick="loadJanela('pages/janelas/clientes')">
-                <img src="./icons/client-add.svg" alt=".">
-                <span class="names-list">Cadastro de Clientes</span>
-            </a>
-        </li>
-        <li>
-            <a href="#" class="menu-item-list" onclick="loadJanela('pages/janelas/clientes')">
-                <img src="./icons/client-add.svg" alt=".">
-                <span class="names-list">Cadastro de Clientes</span>
-            </a>
-        </li>
-        <li>
-            <a href="#" class="menu-item-list" onclick="loadJanela('pages/janelas/clientes')">
-                <img src="./icons/client-add.svg" alt=".">
-                <span class="names-list">Cadastro de Clientes</span>
-            </a>
-        </li>
+        </li>        
     </ul>
+
+    <script>
+        // Lógica para capturar clique nas opções e carregar na #janela
+        document.addEventListener('click', function (e) {
+            if (e.target.closest('[data-janela]')) {
+                e.preventDefault();
+                const page = e.target.closest('[data-janela]').getAttribute('data-janela');
+                loadJanela(page);
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -1,3 +1,5 @@
+const janelaCache = {}; // Armazena a janela para cada aba principal
+
 $(document).ready(function () {
     if (!window.electronRemote) {
         console.error("electronRemote não está definido.");
@@ -6,7 +8,7 @@ $(document).ready(function () {
 
     console.log("electronRemote carregado com sucesso.");
 
-    // Seleciona os botões de controle da janela
+    // Botões de controle da janela
     const minimizeBtn = $('#minimizeButton');
     const maximizeBtn = $('#maximizeButton');
     const closeBtn = $('#closeButton');
@@ -16,7 +18,6 @@ $(document).ready(function () {
     maximizeBtn.on('click', () => window.electronRemote.maximizeWindow());
     closeBtn.on('click', () => window.electronRemote.closeWindow());
 
-    // Atualiza o ícone de maximizar/restaurar conforme o estado da janela
     window.electronRemote.onMaximized(() => {
         maximizeIcon.attr('src', './icons/unmax.svg').attr('alt', 'Restaurar');
     });
@@ -25,49 +26,73 @@ $(document).ready(function () {
         maximizeIcon.attr('src', './icons/max.svg').attr('alt', 'Maximizar');
     });
 
-    // Carrega a página inicial (se necessário, para seu contexto)
+    // Carrega a página inicial
     loadContent('pages/home');
 
-    // Animação do menu hamburguer
+    // Animação do menu hambúrguer
     $('.menu-hamburguer').on('click', function (event) {
         event.stopPropagation();
         $('#menu').toggleClass('active');
         $('.titles-list').toggleClass('active');
         $(this).toggleClass('active');
+        setTimeout(() => {
+            $(this).removeClass("active");
+        }, 200);
     });
 
-    // Impede o fechamento do menu clicando dentro dele
     $('#menu').on('click', function (event) {
         event.stopPropagation();
     });
 
-    // Fecha o menu clicando fora
     $(document).on('click', function () {
         $('#menu').removeClass('active');
         $('.titles-list').removeClass('active');
-        $('.menu-hamburguer').removeClass('active');
     });
 
-    // Função para adicionar/remover a classe 'active' nos itens
-    function handleMenuItemClick(selector) {
-        $(selector).click(function () {
-            // Remove a classe 'active' de todos os itens
-            $(selector).removeClass('active');
-            // Adiciona 'active' no item clicado
-            $(this).addClass('active');
-        });
+    // Captura de cliques para abrir janelas
+    $(document).on('click', '[data-janela]', function (e) {
+        e.preventDefault();
+        const page = $(this).data('janela');
+        loadJanela(page);
+    });
+
+    // Captura de cliques para carregar páginas
+    $(document).on('click', '[data-page]', function (e) {
+        e.preventDefault();
+        const page = $(this).data('page');
+        loadContent(page);
+    });
+
+    // Função para ativar visualmente o item do menu lateral (para páginas)
+    function setActiveMenu(selector, page) {
+        $(selector).removeClass('active');
+        $(`${selector}[data-page="${page}"]`).addClass('active');
     }
-    
-    handleMenuItemClick('.menu-item');
-    handleMenuItemClick('.menu-item-list');
-    // Aplica a função nos itens de menu e lista
+
+    // Função específica para destacar o item de menu de janelas
+    function setActiveJanelaMenu(page) {
+        $('.menu-item-list').removeClass('active');
+        $(`.menu-item-list[data-janela="${page}"]`).addClass('active');
+    }
+
+    window.setActiveMenu = setActiveMenu;
+    window.setActiveJanelaMenu = setActiveJanelaMenu;
 });
 
-// Função para carregar conteúdo principal sem transição (opcional, se for necessário)
+// Função para carregar conteúdo no #content e restaurar a janela se houver cache
 function loadContent(page) {
     $.get(`${page}.html`)
         .done(data => {
             $('#content').html(data);
+            setActiveMenu('.menu-item', page, '#menu');
+
+            // Verifica se existe janela salva para essa aba
+            if (janelaCache[page]) {
+                $('#janela').html(janelaCache[page].data);
+                setActiveJanelaMenu(janelaCache[page].page);
+            } else {
+                $('#janela').empty();
+            }
         })
         .fail(error => {
             console.error('Erro ao carregar página:', error.statusText);
@@ -75,10 +100,19 @@ function loadContent(page) {
         });
 }
 
+// Função para carregar conteúdo no #janela e salvar no cache
 function loadJanela(page) {
     $.get(page)
         .done(data => {
             $('#janela').html(data);
+            setActiveJanelaMenu(page);
+
+            // Descobre qual aba principal está ativa
+            const activeContent = $('.menu-item.active').data('page');
+            if (activeContent) {
+                // Salva o conteúdo da janela no cache vinculado à aba atual
+                janelaCache[activeContent] = { page, data };
+            }
         })
         .fail(error => {
             console.error('Erro ao carregar janela:', error.statusText);

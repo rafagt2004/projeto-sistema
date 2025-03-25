@@ -8,19 +8,17 @@
     <link rel="stylesheet" href="main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div id="app">
         <div id="menu">
-
+            <!-- Menu será carregado aqui -->
         </div>
         <div id="app-header">
             <div class="title-bar">
-                <img src="./icons/logo.svg"
-                    alt="Logo" class="title-bar-icon">
+                <img src="./icons/logo.svg" alt="Logo" class="title-bar-icon">
                 <span class="title-bar-text">SalePlus</span>
             </div>
 
@@ -47,18 +45,18 @@
                                 <div class="hamburguer"></div>
                             </div>
                         </li>
-                        <li><a id="home" href="#" onclick="loadContent('pages/home')">
-                                <img src="./icons/cadastro.svg" alt=".">
-                                <span class="titles-list">Cadastros</span>
-                            </a></li>
-                        <li><a href="#" onclick="loadContent('pages/financeiro')">
-                                <img src="./icons/financeiro.svg" alt=".">
-                                <span class="titles-list">Financeiro</span>
-                            </a></li>
-                        <li><a href="#" onclick="loadContent('pages/estoque')">
-                                <img src="./icons/estoque.svg" alt=".">
-                                <span class="titles-list">Estoque</span>
-                            </a></li>
+                        <li><a href="#" class="menu-item" data-page="home" onclick="loadContent('pages/home')">
+                            <img src="./icons/cadastro.svg" alt=".">
+                            <span class="titles-list">Cadastros</span>
+                        </a></li>
+                        <li><a href="#" class="menu-item" data-page="financeiro" onclick="loadContent('pages/financeiro')">
+                            <img src="./icons/financeiro.svg" alt=".">
+                            <span class="titles-list">Financeiro</span>
+                        </a></li>
+                        <li><a href="#" class="menu-item" data-page="estoque" onclick="loadContent('pages/estoque')">
+                            <img src="./icons/estoque.svg" alt=".">
+                            <span class="titles-list">Estoque</span>
+                        </a></li>
                     </ul>
                 </div>
             </div>
@@ -67,40 +65,13 @@
                     <!-- Conteúdo será carregado aqui -->
                 </main>
                 <main id="janela">
-
+                    <!-- Janelas serão carregadas aqui -->
                 </main>
             </div>
         </div>
     </div>
 
-    <!-- <header id="header-global">
-    </header>
-    <div class="menu-lateral">
-        <div>
-            <div class="menu-hamburguer">
-                <div class="hamburguer"></div>
-                <div class="hamburguer"></div>
-                <div class="hamburguer"></div>
-            </div>
-            <ul>
-                <li><a id="home" href="#" onclick="loadContent('pages/home')">
-                        <img src="https://cdn-icons-png.flaticon.com/512/1177/1177577.png" alt=".">
-                        Cadastros
-                    </a></li>
-                <li><a href="#" onclick="loadContent('pages/financeiro')">
-                        <img src="https://cdn-icons-png.flaticon.com/512/1177/1177577.png" alt=".">
-                        Financeiro
-                    </a></li>
-                <li><a href="#" onclick="loadContent('pages/estoque')">
-                        <img src="https://cdn-icons-png.flaticon.com/512/1177/1177577.png" alt=".">
-                        Estoque
-                    </a></li>
-            </ul>
-        </div>
-    </div> -->
-
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="./js/jquery.slidereveal.min.js"></script>
     <script src="renderer.js"></script>
 </body>
 

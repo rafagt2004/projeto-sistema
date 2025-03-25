@@ -51,12 +51,24 @@ body {
     border-right: 1px solid #0000001b;
 }
 
+#menu.active {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+
 #app-menu-lateral {
     height: 100%;
     width: 60px;
     z-index: 1;
     display: flex;
     justify-content: start;
+    background: none;
 }
 
 #app-menu-lateral ul {
@@ -92,15 +104,26 @@ body {
     cursor: pointer;
 }
 
+.menu-item.active {
+    background-color: #0000001b;
+}
+
 #app-menu-lateral ul li a span {
     display: none;
     margin-left: 16px;
     color: #000;
     font-size: 16px;
+    width: 150px;
 }
 
-#app-menu-lateral ul li a:hover span {
-    width: 150px;
+#app-menu-lateral ul li a span.active {
+    display: block;
+    animation: teste 0.3s ease-in-out;
+}
+
+@keyframes teste {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
 }
 
 #app-menu-lateral img {
@@ -287,7 +310,19 @@ body {
     background-color: #f3f3f3;
 }
 
+.menu-item-list.active{
+    background-color: #f3f3f3;
+}
+
+
 .conteudo-list li img{
-    height: 30px;
+    height: 35px;
     margin-right: 10px;
+    place-content: center;
+    background-color: #f3f3f3;
+    padding: 5px;
+    border-radius: 50%;
+    display: flex;
+    place-content: center;
+    margin-left: 10px;
 }

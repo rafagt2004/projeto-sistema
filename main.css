@@ -379,3 +379,28 @@ body {
     background-color: var(--corFundo);
     padding: 5px 13px;
 }
+
+
+
+
+/*=-=-=-==-=-=-=-=-=-=-====-- Cadastro de Clientes=-==-=-==-=-=-==--=-*/
+
+#header-c-cliente {
+    height: 100px;
+    background-color: var(--corPrimary);
+}
+
+#header-c-cliente > div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--corFundo);
+}
+
+#header-c-cliente > div img{
+    height: 38px;
+}
+
+#header-c-cliente form{
+    display: flex;
+}

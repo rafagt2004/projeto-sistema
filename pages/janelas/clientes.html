@@ -6,9 +6,38 @@
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <h1>Cadastro de Clientes</h1>
-        <img src="./icons/add-cliente.svg" alt="icon" height="50px">
+    <header id="header-c-cliente">
+        <div>
+            <img src="./icons/add-cliente.svg" alt="icon">
+            <h2>Cadastro de Clientes</h2>
+            <a href="">
+                <img src="./icons/add-cadastro-cliente.svg">
+            </a>
+        </div>
+        <nav>
+            <form>
+                <div class="container-radio-c-cliente">
+                    <label for="codigo-c-cliente">
+                        <input type="radio" name="consulta-c-cliente" id="codigo-c-cliente">
+                        Código
+                    </label>
+                    <label for="nome-c-cliente">
+                        <input type="radio" name="consulta-c-cliente" id="nome-c-cliente">
+                        Nome
+                    </label>
+                    <label for="fantasia-c-cliente">
+                        <input type="radio" name="consulta-c-cliente" id="fantasia-c-cliente">
+                        Fantasia
+                    </label>
+                    <label for="cpfcnpj-c-cliente">
+                        <input type="radio" name="consulta-c-cliente" id="cpfcnpj-c-cliente">
+                        CPF/CNPJ
+                    </label>
+                </div>
+                <input type="search" name="consulta-c-cliente" id="">
+            </form>
+        </nav>
     </header>
+
 </body>
 </html>

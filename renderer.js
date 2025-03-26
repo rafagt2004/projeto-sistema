@@ -28,6 +28,7 @@ $(document).ready(function () {
 
     // Carrega a página inicial
     loadContent('pages/home');
+    loadJanela('pages/janelas/clientes.html')
 
     // Animação do menu hambúrguer
     $('.menu-hamburguer').on('click', function (event) {

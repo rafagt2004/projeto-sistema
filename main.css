@@ -212,15 +212,17 @@ body {
 }
 
 .title-bar-buttons img {
-    margin-top: 8px;
-    height: 14px;
+    height: 22px;
     background: none;
 }
 
-.title-bar-buttons button {
-    background: none;
+#minimizeButton{
+    padding-bottom: 10px;
+}
+
+.title-bar-buttons a {
     display: flex;
-    align-items: start;
+    align-items: center;
     border: none;
     padding: 5px 16px;
     cursor: pointer;
@@ -228,7 +230,7 @@ body {
     height: 37px;
 }
 
-.title-bar-buttons button:hover {
+.title-bar-buttons a:hover {
     background-color: #02020225;
 }
 

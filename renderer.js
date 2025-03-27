@@ -125,7 +125,10 @@ function loadJanela(page) {
 //https://app.unpkg.com/tippy.js@6.3.7
 tippy('[data-tippy-content]', {
     theme: 'material',
-    animation:'perspective-extreme'
+    animation:'shift-away-extreme',
+    placement: 'right',
+    arrow: false,
 });
+
 
 

@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@5/animations/perspective-extreme.css">
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@5/themes/material.css">
 </head>
 
 <body>
@@ -21,13 +23,13 @@
                 <span class="title-bar-text">SalePlus</span>
             </div>
             <div class="title-bar-buttons">
-                <a id="minimizeButton">
+                <a id="minimizeButton" title="Minimizar">
                     <img src="./icons/min.svg" alt="Minimizar">
                 </a>
-                <a id="maximizeButton">
+                <a id="maximizeButton" title="Maximizar">
                     <img src="./icons/max.svg" alt="Maximizar">
                 </a>
-                <a id="closeButton">
+                <a id="closeButton" title="Fechar">
                     <img src="./icons/close.svg" alt="Fechar">
                 </a>
             </div>
@@ -36,28 +38,28 @@
             <div id="app-menu-lateral">
                 <ul>
                     <li id="menu-hamburguer-button">
-                        <div class="menu-hamburguer">
+                        <div class="menu-hamburguer" data-tippy-content="Menu de Navegação">
                             <div class="hamburguer"></div>
                             <div class="hamburguer"></div>
                             <div class="hamburguer"></div>
                         </div>
                     </li>
                     <li>
-                        <a href="#" class="menu-item" data-page="pages/home">
+                        <a href="#" class="menu-item" data-page="pages/home" title="Cadastros">
                             <div></div>
                             <img src="./icons/cadastro.svg" alt="Cadastros">
                             <span class="titles-list">Cadastros</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="menu-item" data-page="pages/financeiro">
+                        <a href="#" class="menu-item" data-page="pages/financeiro" title="Financeiro">
                             <div></div>
                             <img src="./icons/financeiro.svg" alt="Financeiro">
                             <span class="titles-list">Financeiro</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="menu-item" data-page="pages/estoque">
+                        <a href="#" class="menu-item" data-page="pages/estoque" title="Estoque">
                             <div></div>
                             <img src="./icons/estoque.svg" alt="Estoque">
                             <span class="titles-list">Estoque</span>
@@ -72,7 +74,9 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/tippy-bundle.iife.js"></script>
     <script src="renderer.js"></script>
 </body>
 

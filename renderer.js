@@ -122,3 +122,10 @@ function loadJanela(page) {
             $('#janela').html('<p>Erro ao carregar janela.</p>');
         });
 }
+//https://app.unpkg.com/tippy.js@6.3.7
+tippy('[data-tippy-content]', {
+    theme: 'material',
+    animation:'perspective-extreme'
+});
+
+

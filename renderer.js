@@ -124,11 +124,19 @@ function loadJanela(page) {
 }
 //https://app.unpkg.com/tippy.js@6.3.7
 tippy('[data-tippy-content]', {
-    theme: 'material',
     animation:'shift-away-extreme',
     placement: 'right',
     arrow: false,
+    theme:'teste-tema'
 });
 
-
+// tippy('[buttons-actions-bar-tippy]', {
+//     content: (reference) => reference.getAttribute('buttons-actions-bar-tippy'),
+//     placement: 'top',
+//     arrow: false,
+//     offset: [0, 10],
+//     animation:'shift-away-extreme',
+//     theme: 'tooltip-buttons-bar',
+//     followCursor: false,
+// });
 
